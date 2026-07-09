@@ -1047,6 +1047,150 @@ matplotlib.pyplot.show()
 ```
 
 ## Storing Values in Lists
+```python
+odds = [1, 3, 5, 7]
+print("odds are:", odds)
+```
+
+    odds are: [1, 3, 5, 7]
+
+
+
+```python
+print("first element:", odds[0])
+print("last element:", odds[3])
+print("negative one element:", odds[-1])
+```
+
+    first element: 1
+    last element: 7
+    negative one element: 7
+
+
+
+```python
+names = ["Curie", "Darwin", "Turing"]
+print("names is originally:", names)
+names[1] = "Darwin"
+print("final names:", names)
+```
+
+    names is originally: ['Curie', 'Darwin', 'Turing']
+    final names: ['Curie', 'Darwin', 'Turing']
+
+
+
+```python
+odds.append(11)
+print("after adding a value:", odds)
+```
+
+    after adding a value: [1, 3, 5, 7, 11]
+
+
+
+```python
+removed_element = odds.pop(0)
+print("odds after removing first element:", odds)
+print("removed element:", removed_element)
+```
+
+    odds after removing first element: [3, 5, 7, 11]
+    removed element: 1
+
+
+
+```python
+odds.reverse()
+print("odds after reversing:", odds)
+```
+
+    odds after reversing: [11, 7, 5, 3]
+
+
+
+```python
+odds = [3,5,7]
+primes = odds
+primes.append(2)
+print("primes:", primes)
+print("odds:", odds)
+```
+
+    primes: [3, 5, 7, 2]
+    odds: [3, 5, 7, 2]
+
+
+
+```python
+odds = [3,5,7]
+primes = list(odds)
+primes.append(2)
+print("primes:", primes)
+print("odds:", odds)
+```
+
+    primes: [3, 5, 7, 2]
+    odds: [3, 5, 7]
+
+
+
+```python
+binomial_name = "Drosophila melanogaster"
+group = binomial_name[:10]
+species = binomial_name[11:23]
+print(species)
+```
+
+    melanogaster
+
+
+
+```python
+chromosomes = ["X","Y","2","3","4"]
+autosomes = chromosomes[2:5]
+print(autosomes)
+last = chromosomes[-1]
+print(last)
+```
+
+    ['2', '3', '4']
+    4
+
+
+
+```python
+date = "Monday 4 January 2023"
+day = date[:6]
+print("using zero to begin range:", day)
+day = date[:6]
+print("omitting beginning index:", day)
+```
+
+    using zero to begin range: Monday
+    omitting beginning index: Monday
+
+
+
+```python
+months=["January","February","March","April","May","June","July","August","September","October","November","December"]
+end = months[8:12]
+print("known last position:", end)
+end = months[8:len(months)]
+print("using length:", end)
+end = months[8:]
+print("omitting ending index:", end)
+```
+
+    known last position: ['September', 'October', 'November', 'December']
+    using length: ['September', 'October', 'November', 'December']
+    omitting ending index: ['September', 'October', 'November', 'December']
+
+
+
+```python
+
+```
 
 ## Using Loops
 
