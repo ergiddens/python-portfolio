@@ -2191,6 +2191,230 @@ help(offset_mean)
 ```
 
 ## Defensive Programming
+```python
+numbers = [1.5, 0.3, 0.7, -0.001, 4.4]
+
+total = 0.0
+
+for num in numbers:
+    assert num > 0.0, "Data should only contain positive values"
+    total += num
+
+print("Total is", total)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-1-8a8d77df131a> in <module>
+          4 
+          5 for num in numbers:
+    ----> 6     assert num > 0.0, "Data should only contain positive values"
+          7     total += num
+          8 
+
+
+    AssertionError: Data should only contain positive values
+
+
+
+```python
+def normalize_rectangle(rect):
+    """
+    Normalize a rectangle so that it is at the origin
+    and 1.0 units long on its longest axis.
+
+    Input format: (x0, y0, x1, y1)
+    """
+
+    assert len(rect) == 4, "Rectangles must contain four coordinates"
+
+    x0, y0, x1, y1 = rect
+
+    assert x0 < x1, "Invalid x coordinates"
+    assert y0 < y1, "Invalid y coordinates"
+
+    dx = x1 - x0
+    dy = y1 - y0
+
+    if dx > dy:
+        scale = dx
+        upper_x = 1.0
+        upper_y = dy / dx
+    else:
+        scale = dy
+        upper_x = dx / dy
+        upper_y = 1.0
+
+    assert 0.0 < upper_x <= 1.0, "Calculated upper x coordinate invalid"
+    assert 0.0 < upper_y <= 1.0, "Calculated upper y coordinate invalid"
+
+    return (0.0, 0.0, upper_x, upper_y)
+```
+
+
+```python
+# Intentionally trigger an assertion
+print(normalize_rectangle((0.0, 1.0, 2.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-3-89a18614a90c> in <module>
+          1 # Intentionally trigger an assertion
+    ----> 2 print(normalize_rectangle((0.0, 1.0, 2.0)))
+    
+
+    <ipython-input-2-7e7b794d9521> in normalize_rectangle(rect)
+          7     """
+          8 
+    ----> 9     assert len(rect) == 4, "Rectangles must contain four coordinates"
+         10 
+         11     x0, y0, x1, y1 = rect
+
+
+    AssertionError: Rectangles must contain four coordinates
+
+
+
+```python
+# Invalid x coordinates
+print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-4-ebabec9a69a4> in <module>
+          1 # Invalid x coordinates
+    ----> 2 print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+    
+
+    <ipython-input-2-7e7b794d9521> in normalize_rectangle(rect)
+         11     x0, y0, x1, y1 = rect
+         12 
+    ---> 13     assert x0 < x1, "Invalid x coordinates"
+         14     assert y0 < y1, "Invalid y coordinates"
+         15 
+
+
+    AssertionError: Invalid x coordinates
+
+
+
+```python
+# Valid rectangle
+print(normalize_rectangle((0.0, 0.0, 1.0, 5.0)))
+```
+
+    (0.0, 0.0, 0.2, 1.0)
+
+
+
+```python
+# Wider than tall
+print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+```
+
+    (0.0, 0.0, 1.0, 0.2)
+
+
+
+```python
+
+```
+```python
+# Defensive Programming Part 2
+# This lesson is discussion-based. These notes summarize the key debugging practices.
+```
+
+
+```python
+debugging_tips = [
+    "Know what your program is supposed to do.",
+    "Create a test that fails every time.",
+    "Make failures happen quickly.",
+    "Change one thing at a time.",
+    "Keep track of what you've tried.",
+    "Ask for help when needed."
+]
+
+for tip in debugging_tips:
+    print("-", tip)
+```
+
+    - Know what your program is supposed to do.
+    - Create a test that fails every time.
+    - Make failures happen quickly.
+    - Change one thing at a time.
+    - Keep track of what you've tried.
+    - Ask for help when needed.
+
+
+
+```python
+def check_positive(values):
+    for v in values:
+        assert v >= 0, "Negative values are not allowed."
+    return True
+
+print(check_positive([1, 2, 3]))
+```
+
+    True
+
+
+
+```python
+# Example: changing one thing at a time
+x = 10
+y = 5
+
+print("Before:", x, y)
+x = x + 1
+print("After changing one variable:", x, y)
+```
+
+    Before: 10 5
+    After changing one variable: 11 5
+
+
+
+```python
+print(
+"""Key Takeaways
+
+1. Understand what the code should do.
+2. Reproduce bugs consistently.
+3. Make bugs fail quickly.
+4. Change one thing at a time.
+5. Keep notes.
+6. Don't be afraid to ask for help.
+""")
+```
+
+    Key Takeaways
+    
+    1. Understand what the code should do.
+    2. Reproduce bugs consistently.
+    3. Make bugs fail quickly.
+    4. Change one thing at a time.
+    5. Keep notes.
+    6. Don't be afraid to ask for help.
+    
+
+
+
+```python
+
+```
 
 ## Transcribing DNA into RNA
 
