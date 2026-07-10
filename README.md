@@ -2417,5 +2417,89 @@ print(
 ```
 
 ## Transcribing DNA into RNA
+```python
+# Prompt user to enter the input FASTA file name
+
+input_file_name = input("Enter the name of the input FASTA file: ")
+```
+
+    Enter the name of the input FASTA file:  /home/student/Desktop/classroom/myfiles/gene.fna
+
+
+
+```python
+# Open the input FASTA file and read the DNA sequence
+
+with open(input_file_name, "r") as input_file:
+    dna_sequence = ""
+
+    for line in input_file:
+        if line.startswith(">"):
+            continue
+
+        dna_sequence += line.strip()
+```
+
+
+```python
+# Create the RNA sequence by replacing T with U
+
+rna_sequence = dna_sequence.replace("T", "U")
+```
+
+
+```python
+# Prompt user to enter the output file name
+
+output_file_name = input("Enter the name of the output file: ")
+```
+
+    Enter the name of the output file:  gene_rna.txt
+
+
+
+```python
+# Write the RNA sequence to the output file
+
+with open(output_file_name, "w") as output_file:
+    output_file.write(rna_sequence)
+```
+
+
+```python
+# Print the RNA sequence
+
+print(rna_sequence)
+```
+
+    CACCGAUAGUAUCGCAAAAGUUAACGAGGUAGGUCCAGCACCAGUUUUUUUGGCGUGUAGCUGUAGCAGAAGCAAAAGGAAGCCGCUUGUGAUAAAUUUCAACUUCCAUCAGCAAGCACUGAAUUUGAGGAAAUCAGGUAAAUUUUUGCAUUUCUACGCGAUUAGUUGCUGCCCCGCGGUAUUGUGCUUAGUUUUUACGUGUGGUUUACCAAUUUCCGCGUACUUAAUUGGACAUUUUGCCUCGUUUUUUUUCGUACAGCACGCCCGGCAUUCGACGCUCCGCAAAAGAAAAAAAAAACUUUUUUGACCACUUAGCAGCUUCAACAAGCAACCAAAAAAUCAACAUGUCUGACGAAAAGAAGGGAGGUGAGACCGAGCACAUCAACCUGAAGGUCCUCGGCCAGGACAACGCCGUCGUCCAGUUCAAGAUCAAGAAGCACACACCCUUGAGGAAGCUGAUGAACGCCUACUGCGACCGUGCCGGACUCUCCAUGCAGGUGGUGCGCUUCCGUUUCGACGGACAGCCCAUCAACGAGAACGACACUCCGACCUCGCUGGAGAUGGAGGAGGGCGACACCAUCGAGGUUUACCAGCAGCAGACUGGUGGCGCUCCAUAAGAUUACUUAGUUAAGUUAGUUACUCCUCUUACAACUACACACUUAAAACGAAAAAGAAAAAAAUACAAGAAAAACCACAAAAGCAAAAACACAACAACAACAACAUGAAGAAUCCAACAAACCAGGCCCUAAGAAUCGAUUGAAUAUGCUUUUAGUACAACUGUAGAUUCUAAAUGCGUCUGUGUGCGUAAAUAACAAAAACAUUUGCAGACAAGAAAAUGGUAAAUAAAGCAUUUUAUAAACUACAC
+
+
+
+```python
+import os
+print(os.getcwd())
+print(os.listdir())
+```
+
+    /home/student
+    ['.bashrc', '.jupyter', 'Music', 'anaconda3', '.gnome', '.dmrc', '.rstudio', 'Untitled.ipynb', '.xorgxrdp.10.log.old', '.ipython', 'Public', 'R', '.sh_history', 'Documents', 'sumo_rna.txt', '.pcsc10', '.pki', '.gitconfig', 'Videos', '.sudo_as_admin_successful', '.config', '.nextflow', 'prax0065w', '.ipynb_checkpoints', '.dbus', 'go', '.bash_logout', '.git-credentials', '.Rhistory', 'Downloads', 'Pictures', '.xsession-errors', '.mozilla', 'rstudio-server-2023.09.1-494-amd64.deb', 'examples.desktop', '.gnupg', 'thinclient_drives', 'singularity', '.cache', 'gene_rna.txt', '.kube', 'Desktop', '.gconf', '.bash_history', 'Templates', '.ssh', '.xsession-errors.old', '.xorgxrdp.10.log', 'snap', '.ICEauthority', '.gitlab', '.Xauthority', '.profile', '.local', '.conda', 'jupyter.log']
+
+
+
+```python
+import shutil
+
+shutil.move("gene_rna.txt", "/home/student/Desktop/classroom/myfiles/gene_rna.txt")
+print("Done!")
+```
+
+    Done!
+
+
+
+```python
+
+```
 
 ## Translating RNA into Protein
